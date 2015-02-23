@@ -25,13 +25,26 @@
                                             <constraint firstAttribute="width" constant="200" id="kDf-ww-eRc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kT-e4-maa">
+                                        <rect key="frame" x="88" y="221" width="200" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="HpE-qB-sNS"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Log in with LinkedIn">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="c4D-MY-qdL" firstAttribute="leading" secondItem="Ikf-N5-7if" secondAttribute="leading" constant="166" id="7Rd-g0-gjE"/>
+                                    <constraint firstItem="1kT-e4-maa" firstAttribute="top" secondItem="c4D-MY-qdL" secondAttribute="bottom" constant="100" id="Awy-mg-Gk2"/>
+                                    <constraint firstAttribute="centerX" secondItem="1kT-e4-maa" secondAttribute="centerX" id="WjO-iU-qk8"/>
                                     <constraint firstAttribute="centerX" secondItem="c4D-MY-qdL" secondAttribute="centerX" id="tKm-Oq-w8S"/>
                                     <constraint firstItem="c4D-MY-qdL" firstAttribute="top" secondItem="Ikf-N5-7if" secondAttribute="top" constant="100" id="xpW-Y6-joR"/>
                                     <constraint firstAttribute="trailing" secondItem="c4D-MY-qdL" secondAttribute="trailing" constant="167" id="zfJ-z5-9zW"/>
