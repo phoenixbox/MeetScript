@@ -11,6 +11,7 @@
 @interface MSStartMeetingViewController ()
 
 @property (nonatomic, assign) BOOL DEVELOPMENT_ENV;
+@property (nonatomic, strong) NSData *lastAudioData;
 
 @end
 
@@ -113,35 +114,16 @@ NSString * const kResume = @"Resume";
         NSString* resourceLocation = [NSString stringWithFormat:@"%@%@",docDir,@"/the_national.m4a"];
 
         NSData *fileData = [NSData dataWithContentsOfFile:resourceLocation];
-        NSError *error = nil;
+        _lastAudioData = fileData;
 
-        _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData
-                                                     error:&error];
-        if (_audioPlayer != nil) {
-            _audioPlayer.delegate = self;
-
-            if ([self.audioPlayer prepareToPlay] && [self.audioPlayer play]) {
-                [_togglePlaybackButton setTitle:kPause forState:UIControlStateNormal];
-            } else {
-                NSLog(@"Playing in PRODCUTION");
-            }
-        } else {
-            NSLog(@"No audio player");
-        }
+        [self playAudioForData:fileData];
     });
 }
 
-- (void)persistAudioToServer {
+- (void)playAudioForData:(NSData *)data {
     NSError *playbackError = nil;
-    NSError *readingError = nil;
 
-    NSData *fileData = [NSData dataWithContentsOfURL:[self audioRecordingPath]
-                                              options:NSDataReadingMapped
-                                                error:&readingError];
-
-    NSLog(@"PROD: Stream the data to the server??");
-
-    _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData
+    _audioPlayer = [[AVAudioPlayer alloc] initWithData:data
                                                  error:&playbackError];
     /* Could we instantiate the audio player? */
     if (self.audioPlayer != nil) {
@@ -157,6 +139,18 @@ NSString * const kResume = @"Resume";
     }
 }
 
+- (void)saveAudioToServer {
+    NSError *readingError = nil;
+
+    NSData *fileData = [NSData dataWithContentsOfURL:[self audioRecordingPath]
+                                              options:NSDataReadingMapped
+                                                error:&readingError];
+    _lastAudioData = fileData;
+
+    NSLog(@"PROD: Stream the data to the server??");
+    [self playAudioForData:fileData];
+}
+
 #pragma AVFramework Protocol Functions
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
@@ -167,7 +161,7 @@ NSString * const kResume = @"Resume";
         if (_DEVELOPMENT_ENV) {
             [self loadAndPlayFile];
         } else {
-            [self persistAudioToServer];
+            [self saveAudioToServer];
         }
     } else {
         NSLog(@"Failed to stop the audio recording");

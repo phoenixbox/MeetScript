@@ -16,6 +16,7 @@
 		CB1EE0D21A9AFEB100400611 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1EE0D01A9AFEB100400611 /* LaunchScreen.xib */; };
 		CB1EE0DE1A9AFEB100400611 /* MeetScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0DD1A9AFEB100400611 /* MeetScriptTests.m */; };
 		CB1EE0EE1A9C3C1100400611 /* MSStartMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */; };
+		CB1EE0F11A9C942A00400611 /* MSAudioStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0F01A9C942A00400611 /* MSAudioStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		CB1EE0E81A9C2E2500400611 /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		CB1EE0EC1A9C3C1100400611 /* MSStartMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSStartMeetingViewController.h; sourceTree = "<group>"; };
 		CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSStartMeetingViewController.m; sourceTree = "<group>"; };
+		CB1EE0EF1A9C942A00400611 /* MSAudioStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAudioStore.h; sourceTree = "<group>"; };
+		CB1EE0F01A9C942A00400611 /* MSAudioStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAudioStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				CB1EE0C11A9AFEB100400611 /* Supporting Files */,
 				CB1EE0EC1A9C3C1100400611 /* MSStartMeetingViewController.h */,
 				CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */,
+				CB1EE0EF1A9C942A00400611 /* MSAudioStore.h */,
+				CB1EE0F01A9C942A00400611 /* MSAudioStore.m */,
 			);
 			path = MeetScript;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB1EE0CA1A9AFEB100400611 /* MSLoginViewController.m in Sources */,
+				CB1EE0F11A9C942A00400611 /* MSAudioStore.m in Sources */,
 				CB1EE0C71A9AFEB100400611 /* AppDelegate.m in Sources */,
 				CB1EE0C41A9AFEB100400611 /* main.m in Sources */,
 				CB1EE0EE1A9C3C1100400611 /* MSStartMeetingViewController.m in Sources */,
