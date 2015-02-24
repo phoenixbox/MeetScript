@@ -24,4 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *finishRecordingButton;
 - (IBAction)finishRecording:(id)paramSender;
 
+@property (weak, nonatomic) IBOutlet UIButton *togglePlaybackButton;
+- (IBAction)togglePlayback:(UIButton *)buttonSender;
+
+
 @end

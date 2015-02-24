@@ -14,6 +14,10 @@
 
 @end
 
+NSString * const kPause = @"Pause";
+NSString * const kStop = @"Stop";
+NSString * const kResume = @"Resume";
+
 @implementation MSStartMeetingViewController
 
 - (void)viewDidLoad {
@@ -103,24 +107,23 @@
     dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
     dispatch_async(dispatchQueue, ^(void) {
-        NSBundle *mainBundle = [NSBundle mainBundle];
-        // TODO: Load local file
-        NSString *filePath = [mainBundle pathForResource:@"MySong"
-                                                  ofType:@"mp3"];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString* docDir = [paths objectAtIndex:0];
+        NSString* resourceLocation = [NSString stringWithFormat:@"%@%@",docDir,@"/the_national.m4a"];
 
-        NSData   *fileData = [NSData dataWithContentsOfFile:filePath];
-        NSError  *error = nil;
-        /* Start the audio player */
+        NSData *fileData = [NSData dataWithContentsOfFile:resourceLocation];
+        NSError *error = nil;
+
         _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData
                                                      error:&error];
-
         if (_audioPlayer != nil) {
             _audioPlayer.delegate = self;
 
             if ([self.audioPlayer prepareToPlay] && [self.audioPlayer play]) {
-                NSLog(@"Playing in development");
+                [_togglePlaybackButton setTitle:kPause forState:UIControlStateNormal];
             } else {
-                NSLog(@"Playing in production");
+                NSLog(@"Playing in PRODCUTION");
             }
         } else {
             NSLog(@"No audio player");
@@ -157,13 +160,10 @@
 #pragma AVFramework Protocol Functions
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
-    [_recordingControlsView setHidden:YES];
-
     if (flag){
         NSLog(@"Successfully stopped the audio recording process.");
         /* Let's try to retrieve the data for the recorded file */
         // TODO: persist to external server which handles audio to text conversion
-
         if (_DEVELOPMENT_ENV) {
             [self loadAndPlayFile];
         } else {
@@ -202,4 +202,17 @@
     }
 }
 
+- (IBAction)togglePlayback:(UIButton *)buttonSender {
+    NSString *buttonTitle = [buttonSender titleForState:UIControlStateNormal];
+
+    if ([buttonTitle isEqualToString:kPause]) {
+        [_audioPlayer pause];
+        [buttonSender setTitle:kResume forState:UIControlStateNormal];
+    } else if ([buttonTitle isEqualToString:kResume]) {
+        [_audioPlayer play];
+        [buttonSender setTitle:kPause forState:UIControlStateNormal];
+    } else {
+        NSLog(@"WARNING: Buttons state not recognized");
+    }
+}
 @end

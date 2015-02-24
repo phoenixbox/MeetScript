@@ -39,7 +39,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginWithLinkedIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OLb-hv-rt3"/>
+                                            <action selector="loginWithLinkedIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7bd-q3-dVf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -94,6 +94,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6d-tu-log" userLabel="Content">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58W-aH-vmb" userLabel="Pause">
+                                        <rect key="frame" x="137" y="229" width="100" height="40"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ge9-Vw-en1"/>
+                                            <constraint firstAttribute="width" constant="100" id="yym-RE-1aQ"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Pause">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="togglePlayback:" destination="Zso-gf-GJA" eventType="touchUpInside" id="qIE-43-RpC"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIQ-YM-hgd">
                                         <rect key="frame" x="87" y="309" width="200" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -156,7 +171,10 @@
                                     <constraint firstAttribute="trailing" secondItem="Aex-R4-ws5" secondAttribute="trailing" id="9vj-dU-AE7"/>
                                     <constraint firstAttribute="centerY" secondItem="bIQ-YM-hgd" secondAttribute="centerY" id="CmD-fC-IOf"/>
                                     <constraint firstItem="Aex-R4-ws5" firstAttribute="top" secondItem="bIQ-YM-hgd" secondAttribute="bottom" constant="40" id="UP3-5O-9uO"/>
+                                    <constraint firstItem="bIQ-YM-hgd" firstAttribute="top" secondItem="58W-aH-vmb" secondAttribute="bottom" constant="40" id="VU9-sh-JgJ"/>
+                                    <constraint firstAttribute="centerX" secondItem="58W-aH-vmb" secondAttribute="centerX" constant="0.5" id="X7T-Ns-kow"/>
                                     <constraint firstAttribute="bottom" secondItem="Aex-R4-ws5" secondAttribute="bottom" id="eNe-aw-joQ"/>
+                                    <constraint firstItem="58W-aH-vmb" firstAttribute="top" relation="lessThanOrEqual" secondItem="s6d-tu-log" secondAttribute="top" constant="246" id="ieh-kf-YJS"/>
                                     <constraint firstItem="Aex-R4-ws5" firstAttribute="leading" secondItem="s6d-tu-log" secondAttribute="leading" constant="52" id="s4T-tq-UC7"/>
                                     <constraint firstItem="Aex-R4-ws5" firstAttribute="leading" secondItem="s6d-tu-log" secondAttribute="leading" id="uUd-0F-kIQ"/>
                                     <constraint firstAttribute="centerX" secondItem="bIQ-YM-hgd" secondAttribute="centerX" constant="0.5" id="zpG-UK-IX2"/>
@@ -182,11 +200,12 @@
                         <outlet property="pauseRecordingButton" destination="A0W-fz-pw0" id="If1-1K-Iek"/>
                         <outlet property="recordButton" destination="bIQ-YM-hgd" id="bxK-sJ-JJt"/>
                         <outlet property="recordingControlsView" destination="Aex-R4-ws5" id="ZTf-83-UFa"/>
+                        <outlet property="togglePlaybackButton" destination="58W-aH-vmb" id="sLf-ps-sjp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVg-W9-8Di" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026.5" y="372.5"/>
+            <point key="canvasLocation" x="1011.5" y="264.5"/>
         </scene>
     </scenes>
 </document>
