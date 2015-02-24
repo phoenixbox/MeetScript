@@ -91,47 +91,83 @@
     return settings;
 }
 
-- (IBAction)pauseRecording:(AVAudioRecorder *)paramRecorder {
-    [paramRecorder pause];
+- (IBAction)pauseRecording:(id)paramSender {
+    [_audioRecorder pause];
 }
 
-- (IBAction)finishRecording:(AVAudioRecorder *)paramRecorder {
-        [paramRecorder stop];
+- (IBAction)finishRecording:(id)paramSender {
+    [_audioRecorder stop];
+}
+
+- (void)loadAndPlayFile {
+    dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    dispatch_async(dispatchQueue, ^(void) {
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        // TODO: Load local file
+        NSString *filePath = [mainBundle pathForResource:@"MySong"
+                                                  ofType:@"mp3"];
+
+        NSData   *fileData = [NSData dataWithContentsOfFile:filePath];
+        NSError  *error = nil;
+        /* Start the audio player */
+        _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData
+                                                     error:&error];
+
+        if (_audioPlayer != nil) {
+            _audioPlayer.delegate = self;
+
+            if ([self.audioPlayer prepareToPlay] && [self.audioPlayer play]) {
+                NSLog(@"Playing in development");
+            } else {
+                NSLog(@"Playing in production");
+            }
+        } else {
+            NSLog(@"No audio player");
+        }
+    });
+}
+
+- (void)persistAudioToServer {
+    NSError *playbackError = nil;
+    NSError *readingError = nil;
+
+    NSData *fileData = [NSData dataWithContentsOfURL:[self audioRecordingPath]
+                                              options:NSDataReadingMapped
+                                                error:&readingError];
+
+    NSLog(@"PROD: Stream the data to the server??");
+
+    _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData
+                                                 error:&playbackError];
+    /* Could we instantiate the audio player? */
+    if (self.audioPlayer != nil) {
+        self.audioPlayer.delegate = self;
+        /* Prepare to play and start playing */
+        if ([self.audioPlayer prepareToPlay] && [self.audioPlayer play]) {
+            NSLog(@"Started playing the recorded audio.");
+        } else {
+            NSLog(@"Could not play the audio.");
+        }
+    } else {
+        NSLog(@"Failed to create an audio player.");
+    }
 }
 
 #pragma AVFramework Protocol Functions
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
+    [_recordingControlsView setHidden:YES];
+
     if (flag){
         NSLog(@"Successfully stopped the audio recording process.");
         /* Let's try to retrieve the data for the recorded file */
-        NSError *playbackError = nil;
-        NSError *readingError = nil;
-        NSData  *fileData = [NSData dataWithContentsOfURL:[self audioRecordingPath]
-                                                  options:NSDataReadingMapped
-                                                    error:&readingError];
-
         // TODO: persist to external server which handles audio to text conversion
-        // Load stock mp4 file here
+
         if (_DEVELOPMENT_ENV) {
-            NSLog(@"Persist the audio to external server");
-//            [[MSAudioStore sharedStore] persistAudioToServer];
+            [self loadAndPlayFile];
         } else {
-            NSLog(@"PROD: Stream the data to the server??");
-        }
-        self.audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData
-                                                         error:&playbackError];
-        /* Could we instantiate the audio player? */
-        if (self.audioPlayer != nil) {
-            self.audioPlayer.delegate = self;
-            /* Prepare to play and start playing */
-            if ([self.audioPlayer prepareToPlay] && [self.audioPlayer play]){
-                NSLog(@"Started playing the recorded audio.");
-            } else {
-                NSLog(@"Could not play the audio.");
-            }
-        } else {
-            NSLog(@"Failed to create an audio player.");
+            [self persistAudioToServer];
         }
     } else {
         NSLog(@"Failed to stop the audio recording");
