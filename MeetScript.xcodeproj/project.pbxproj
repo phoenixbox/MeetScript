@@ -17,6 +17,9 @@
 		CB1EE0DE1A9AFEB100400611 /* MeetScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0DD1A9AFEB100400611 /* MeetScriptTests.m */; };
 		CB1EE0EE1A9C3C1100400611 /* MSStartMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */; };
 		CB1EE0F11A9C942A00400611 /* MSAudioStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0F01A9C942A00400611 /* MSAudioStore.m */; };
+		CBEEAF5A1A9CEDCA00BD6C8F /* MSAuthHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAF591A9CEDCA00BD6C8F /* MSAuthHelpers.m */; };
+		CBEEAF5D1A9CEE1D00BD6C8F /* MSSessionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAF5C1A9CEE1D00BD6C8F /* MSSessionStore.m */; };
+		CBEEAF661A9CF58E00BD6C8F /* MSRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAF651A9CF58E00BD6C8F /* MSRecording.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,12 @@
 		CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSStartMeetingViewController.m; sourceTree = "<group>"; };
 		CB1EE0EF1A9C942A00400611 /* MSAudioStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAudioStore.h; sourceTree = "<group>"; };
 		CB1EE0F01A9C942A00400611 /* MSAudioStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAudioStore.m; sourceTree = "<group>"; };
+		CBEEAF581A9CEDCA00BD6C8F /* MSAuthHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAuthHelpers.h; sourceTree = "<group>"; };
+		CBEEAF591A9CEDCA00BD6C8F /* MSAuthHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAuthHelpers.m; sourceTree = "<group>"; };
+		CBEEAF5B1A9CEE1D00BD6C8F /* MSSessionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSessionStore.h; sourceTree = "<group>"; };
+		CBEEAF5C1A9CEE1D00BD6C8F /* MSSessionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSessionStore.m; sourceTree = "<group>"; };
+		CBEEAF641A9CF58E00BD6C8F /* MSRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecording.h; sourceTree = "<group>"; };
+		CBEEAF651A9CF58E00BD6C8F /* MSRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecording.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,19 +111,17 @@
 		CB1EE0C01A9AFEB100400611 /* MeetScript */ = {
 			isa = PBXGroup;
 			children = (
+				CBEEAF631A9CF57C00BD6C8F /* Models */,
+				CBEEAF601A9CF31300BD6C8F /* Controllers */,
+				CBEEAF5F1A9CF30E00BD6C8F /* Helpers */,
+				CBEEAF5E1A9CF30900BD6C8F /* Stores */,
 				CB1EE0E71A9C2E1900400611 /* Constants */,
 				CB1EE0C51A9AFEB100400611 /* AppDelegate.h */,
 				CB1EE0C61A9AFEB100400611 /* AppDelegate.m */,
-				CB1EE0C81A9AFEB100400611 /* MSLoginViewController.h */,
-				CB1EE0C91A9AFEB100400611 /* MSLoginViewController.m */,
 				CB1EE0CB1A9AFEB100400611 /* Main.storyboard */,
 				CB1EE0CE1A9AFEB100400611 /* Images.xcassets */,
 				CB1EE0D01A9AFEB100400611 /* LaunchScreen.xib */,
 				CB1EE0C11A9AFEB100400611 /* Supporting Files */,
-				CB1EE0EC1A9C3C1100400611 /* MSStartMeetingViewController.h */,
-				CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */,
-				CB1EE0EF1A9C942A00400611 /* MSAudioStore.h */,
-				CB1EE0F01A9C942A00400611 /* MSAudioStore.m */,
 			);
 			path = MeetScript;
 			sourceTree = "<group>";
@@ -151,6 +158,62 @@
 				CB1EE0E81A9C2E2500400611 /* AppConstants.h */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		CBEEAF5E1A9CF30900BD6C8F /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEAF5B1A9CEE1D00BD6C8F /* MSSessionStore.h */,
+				CBEEAF5C1A9CEE1D00BD6C8F /* MSSessionStore.m */,
+				CB1EE0EF1A9C942A00400611 /* MSAudioStore.h */,
+				CB1EE0F01A9C942A00400611 /* MSAudioStore.m */,
+			);
+			name = Stores;
+			sourceTree = "<group>";
+		};
+		CBEEAF5F1A9CF30E00BD6C8F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEAF581A9CEDCA00BD6C8F /* MSAuthHelpers.h */,
+				CBEEAF591A9CEDCA00BD6C8F /* MSAuthHelpers.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		CBEEAF601A9CF31300BD6C8F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEAF621A9CF31F00BD6C8F /* StartMeeting */,
+				CBEEAF611A9CF31900BD6C8F /* Login */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CBEEAF611A9CF31900BD6C8F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CB1EE0C81A9AFEB100400611 /* MSLoginViewController.h */,
+				CB1EE0C91A9AFEB100400611 /* MSLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		CBEEAF621A9CF31F00BD6C8F /* StartMeeting */ = {
+			isa = PBXGroup;
+			children = (
+				CB1EE0EC1A9C3C1100400611 /* MSStartMeetingViewController.h */,
+				CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */,
+			);
+			name = StartMeeting;
+			sourceTree = "<group>";
+		};
+		CBEEAF631A9CF57C00BD6C8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEAF641A9CF58E00BD6C8F /* MSRecording.h */,
+				CBEEAF651A9CF58E00BD6C8F /* MSRecording.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +353,10 @@
 			files = (
 				CB1EE0CA1A9AFEB100400611 /* MSLoginViewController.m in Sources */,
 				CB1EE0F11A9C942A00400611 /* MSAudioStore.m in Sources */,
+				CBEEAF5D1A9CEE1D00BD6C8F /* MSSessionStore.m in Sources */,
 				CB1EE0C71A9AFEB100400611 /* AppDelegate.m in Sources */,
+				CBEEAF5A1A9CEDCA00BD6C8F /* MSAuthHelpers.m in Sources */,
+				CBEEAF661A9CF58E00BD6C8F /* MSRecording.m in Sources */,
 				CB1EE0C41A9AFEB100400611 /* main.m in Sources */,
 				CB1EE0EE1A9C3C1100400611 /* MSStartMeetingViewController.m in Sources */,
 			);
