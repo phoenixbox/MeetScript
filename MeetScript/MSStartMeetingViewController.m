@@ -17,7 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"Loaded start meeting view controller");
+    [_recordingControlsView setHidden:YES];
+
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord
+             withOptions:AVAudioSessionCategoryOptionDuckOthers
+                   error:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,7 +31,48 @@
 }
 
 - (IBAction)record:(id)sender {
+    [_recordButton setTitle:@"Recording" forState:UIControlStateNormal];
+
+    [_recordingControlsView setHidden:NO];
+
+    NSError *error = nil;
+
+    NSURL *audioRecordingURL = [self audioRecordingURL];
+    NSDictionary *settings = [self audioRecordingSettings];
+
+    // Note &error == ???
+    _audioRecorder = [[AVAudioRecorder alloc] initWithURL:audioRecordingURL
+                                                 settings:settings
+                                                    error:&error];
+
+    if(_audioRecorder != nil) {
+        _audioRecorder.delegate = self;
+
+        if ([_audioRecorder prepareToRecord] && [_audioRecorder record]) {
+            NSLog(@"Started Recording");
+        } else {
+            NSLog(@"Recording Failed");
+            self.audioRecorder = nil;
+        }
+    }
+
     NSLog(@"Implement audio recording");
 }
 
+- (NSURL *)audioRecordingURL {
+    NSURL *audioRecordingURL = [NSURL new];
+
+    return audioRecordingURL;
+}
+
+- (NSDictionary *)audioRecordingSettings {
+    NSDictionary *settings = [NSDictionary new];
+
+    return settings;
+}
+
+- (IBAction)pauseRecording:(id)sender {
+}
+- (IBAction)finishRecording:(id)sender {
+}
 @end
