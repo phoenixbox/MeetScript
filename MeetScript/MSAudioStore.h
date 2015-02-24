@@ -10,4 +10,8 @@
 
 @interface MSAudioStore : NSObject
 
++ (instancetype)sharedStore;
+
+- (void)saveAudioToServer:(NSData *)audioData withCompletion:(void (^)(NSError *err))block;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MSStartMeetingViewController.h"
+#import "MSAudioStore"
 
 @interface MSStartMeetingViewController ()
 
@@ -116,7 +117,16 @@ NSString * const kResume = @"Resume";
         NSData *fileData = [NSData dataWithContentsOfFile:resourceLocation];
         _lastAudioData = fileData;
 
-        [self playAudioForData:fileData];
+        void(^completionBlock)(NSError *err)=^(NSError *err){
+            if(!err){
+                NSLog(@"Successful save to server!");
+            } else {
+                NSLog(@"Error saving to server :(");
+            }
+        };
+
+        [MSAudioStore saveAudioToServer:filedData withCompletion:completionBlock];
+//        [self playAudioForData:fileData];
     });
 }
 
