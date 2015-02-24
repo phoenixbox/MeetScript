@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSRecording.h"
 
 @interface MSAudioStore : NSObject
 
 + (instancetype)sharedStore;
 
-- (void)saveAudioToServer:(NSData *)audioData withCompletion:(void (^)(NSError *err))block;
+- (void)saveAudioToServer:(NSData *)audioData withCompletion:(void (^)(MSRecording *recording, NSError *err))returnToFinishedMeeting;
 
 @end
