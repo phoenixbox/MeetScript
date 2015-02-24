@@ -107,12 +107,65 @@
                                             <action selector="record:" destination="Zso-gf-GJA" eventType="touchUpInside" id="9Dh-tQ-jQg"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aex-R4-ws5" userLabel="RecordingControls">
+                                        <rect key="frame" x="0.0" y="379" width="375" height="268"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0W-fz-pw0" userLabel="Pause">
+                                                <rect key="frame" x="20" y="45" width="140" height="40"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" priority="900" constant="140" id="CdE-9s-vkt"/>
+                                                    <constraint firstAttribute="height" constant="40" id="eNE-Sk-nyO"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Pause">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pauseRecording:" destination="Zso-gf-GJA" eventType="touchUpInside" id="nOR-mz-JtF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVQ-Ku-hFY" userLabel="Finish">
+                                                <rect key="frame" x="195" y="45" width="160" height="40"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" priority="900" constant="140" id="Spu-Z4-wqg"/>
+                                                    <constraint firstAttribute="height" constant="40" id="o19-sC-SKw"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Finish">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="finishRecording:" destination="Zso-gf-GJA" eventType="touchUpInside" id="LA5-1q-G8U"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="GVQ-Ku-hFY" firstAttribute="top" secondItem="Aex-R4-ws5" secondAttribute="top" constant="45" id="8ZK-it-F1L"/>
+                                            <constraint firstAttribute="trailing" secondItem="GVQ-Ku-hFY" secondAttribute="trailing" constant="20" id="8kY-yG-fgX"/>
+                                            <constraint firstItem="A0W-fz-pw0" firstAttribute="leading" secondItem="Aex-R4-ws5" secondAttribute="leading" constant="20" id="adn-nQ-hR3"/>
+                                            <constraint firstItem="A0W-fz-pw0" firstAttribute="top" secondItem="Aex-R4-ws5" secondAttribute="top" constant="45" id="b0k-po-ez7"/>
+                                            <constraint firstItem="GVQ-Ku-hFY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="A0W-fz-pw0" secondAttribute="trailing" constant="35" id="hq0-gD-B7G"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Aex-R4-ws5" secondAttribute="trailing" id="9vj-dU-AE7"/>
                                     <constraint firstAttribute="centerY" secondItem="bIQ-YM-hgd" secondAttribute="centerY" id="CmD-fC-IOf"/>
+                                    <constraint firstItem="Aex-R4-ws5" firstAttribute="top" secondItem="bIQ-YM-hgd" secondAttribute="bottom" constant="40" id="UP3-5O-9uO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Aex-R4-ws5" secondAttribute="bottom" id="eNe-aw-joQ"/>
+                                    <constraint firstItem="Aex-R4-ws5" firstAttribute="leading" secondItem="s6d-tu-log" secondAttribute="leading" constant="52" id="s4T-tq-UC7"/>
+                                    <constraint firstItem="Aex-R4-ws5" firstAttribute="leading" secondItem="s6d-tu-log" secondAttribute="leading" id="uUd-0F-kIQ"/>
                                     <constraint firstAttribute="centerX" secondItem="bIQ-YM-hgd" secondAttribute="centerX" constant="0.5" id="zpG-UK-IX2"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="s4T-tq-UC7"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,12 +178,15 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="finishRecordingButton" destination="GVQ-Ku-hFY" id="Anj-rC-ywS"/>
+                        <outlet property="pauseRecordingButton" destination="A0W-fz-pw0" id="If1-1K-Iek"/>
                         <outlet property="recordButton" destination="bIQ-YM-hgd" id="bxK-sJ-JJt"/>
+                        <outlet property="recordingControlsView" destination="Aex-R4-ws5" id="ZTf-83-UFa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVg-W9-8Di" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.5" y="264.5"/>
+            <point key="canvasLocation" x="1026.5" y="372.5"/>
         </scene>
     </scenes>
 </document>
