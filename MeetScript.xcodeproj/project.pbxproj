@@ -15,6 +15,7 @@
 		CB1EE0CF1A9AFEB100400611 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB1EE0CE1A9AFEB100400611 /* Images.xcassets */; };
 		CB1EE0D21A9AFEB100400611 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1EE0D01A9AFEB100400611 /* LaunchScreen.xib */; };
 		CB1EE0DE1A9AFEB100400611 /* MeetScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0DD1A9AFEB100400611 /* MeetScriptTests.m */; };
+		CB1EE0EE1A9C3C1100400611 /* MSStartMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		CB1EE0DC1A9AFEB100400611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB1EE0DD1A9AFEB100400611 /* MeetScriptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetScriptTests.m; sourceTree = "<group>"; };
 		CB1EE0E81A9C2E2500400611 /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		CB1EE0EC1A9C3C1100400611 /* MSStartMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSStartMeetingViewController.h; sourceTree = "<group>"; };
+		CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSStartMeetingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				CB1EE0CE1A9AFEB100400611 /* Images.xcassets */,
 				CB1EE0D01A9AFEB100400611 /* LaunchScreen.xib */,
 				CB1EE0C11A9AFEB100400611 /* Supporting Files */,
+				CB1EE0EC1A9C3C1100400611 /* MSStartMeetingViewController.h */,
+				CB1EE0ED1A9C3C1100400611 /* MSStartMeetingViewController.m */,
 			);
 			path = MeetScript;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				CB1EE0CA1A9AFEB100400611 /* MSLoginViewController.m in Sources */,
 				CB1EE0C71A9AFEB100400611 /* AppDelegate.m in Sources */,
 				CB1EE0C41A9AFEB100400611 /* main.m in Sources */,
+				CB1EE0EE1A9C3C1100400611 /* MSStartMeetingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

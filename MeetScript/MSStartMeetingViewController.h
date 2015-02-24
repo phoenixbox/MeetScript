@@ -10,4 +10,7 @@
 
 @interface MSStartMeetingViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *recordButton;
+- (IBAction)record:(id)sender;
+
 @end
