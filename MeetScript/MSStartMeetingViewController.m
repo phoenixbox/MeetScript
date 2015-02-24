@@ -7,7 +7,10 @@
 //
 
 #import "MSStartMeetingViewController.h"
-#import "MSAudioStore"
+
+// Data Layer
+#import "MSAudioStore.h"
+#import "MSRecording.h"
 
 @interface MSStartMeetingViewController ()
 
@@ -117,15 +120,18 @@ NSString * const kResume = @"Resume";
         NSData *fileData = [NSData dataWithContentsOfFile:resourceLocation];
         _lastAudioData = fileData;
 
-        void(^completionBlock)(NSError *err)=^(NSError *err){
+        void(^completionBlock)(MSRecording *recording, NSError *err)=^(MSRecording *recording, NSError *err){
             if(!err){
+                // Emit message to UI el which is listenting and accepting of a record param
+                // Animate reload the table to show the record so the user can then interact with it
+                // Good spot to use the accessory table cell item
                 NSLog(@"Successful save to server!");
             } else {
                 NSLog(@"Error saving to server :(");
             }
         };
 
-        [MSAudioStore saveAudioToServer:filedData withCompletion:completionBlock];
+        [MSAudioStore saveAudioToServer:fileData withCompletion:completionBlock];
 //        [self playAudioForData:fileData];
     });
 }
