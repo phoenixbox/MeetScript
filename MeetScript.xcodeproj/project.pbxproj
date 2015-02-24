@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B91B5F97D414E7FBE1FF40F /* libPods-MeetScript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2FEF0414C94FEB82938131 /* libPods-MeetScript.a */; };
 		CB1EE0C41A9AFEB100400611 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0C31A9AFEB100400611 /* main.m */; };
 		CB1EE0C71A9AFEB100400611 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0C61A9AFEB100400611 /* AppDelegate.m */; };
-		CB1EE0CA1A9AFEB100400611 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0C91A9AFEB100400611 /* ViewController.m */; };
+		CB1EE0CA1A9AFEB100400611 /* MSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1EE0C91A9AFEB100400611 /* MSLoginViewController.m */; };
 		CB1EE0CD1A9AFEB100400611 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1EE0CB1A9AFEB100400611 /* Main.storyboard */; };
 		CB1EE0CF1A9AFEB100400611 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB1EE0CE1A9AFEB100400611 /* Images.xcassets */; };
 		CB1EE0D21A9AFEB100400611 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB1EE0D01A9AFEB100400611 /* LaunchScreen.xib */; };
@@ -27,19 +28,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C3EC8F74759413A99A86984 /* Pods-MeetScript.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetScript.xcconfig"; path = "Pods/Pods-MeetScript.xcconfig"; sourceTree = "<group>"; };
+		AE2FEF0414C94FEB82938131 /* libPods-MeetScript.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MeetScript.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1EE0BE1A9AFEB100400611 /* MeetScript.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1EE0C21A9AFEB100400611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB1EE0C31A9AFEB100400611 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CB1EE0C51A9AFEB100400611 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB1EE0C61A9AFEB100400611 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CB1EE0C81A9AFEB100400611 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CB1EE0C91A9AFEB100400611 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CB1EE0C81A9AFEB100400611 /* MSLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLoginViewController.h; sourceTree = "<group>"; };
+		CB1EE0C91A9AFEB100400611 /* MSLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSLoginViewController.m; sourceTree = "<group>"; };
 		CB1EE0CC1A9AFEB100400611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB1EE0CE1A9AFEB100400611 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB1EE0D11A9AFEB100400611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CB1EE0D71A9AFEB100400611 /* MeetScriptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetScriptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1EE0DC1A9AFEB100400611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB1EE0DD1A9AFEB100400611 /* MeetScriptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetScriptTests.m; sourceTree = "<group>"; };
+		CB1EE0E81A9C2E2500400611 /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B91B5F97D414E7FBE1FF40F /* libPods-MeetScript.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A807E5B07EFE4B54BDA17D44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE2FEF0414C94FEB82938131 /* libPods-MeetScript.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CB1EE0B51A9AFEB000400611 = {
 			isa = PBXGroup;
 			children = (
 				CB1EE0C01A9AFEB100400611 /* MeetScript */,
 				CB1EE0DA1A9AFEB100400611 /* MeetScriptTests */,
 				CB1EE0BF1A9AFEB100400611 /* Products */,
+				5C3EC8F74759413A99A86984 /* Pods-MeetScript.xcconfig */,
+				A807E5B07EFE4B54BDA17D44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +96,11 @@
 		CB1EE0C01A9AFEB100400611 /* MeetScript */ = {
 			isa = PBXGroup;
 			children = (
+				CB1EE0E71A9C2E1900400611 /* Constants */,
 				CB1EE0C51A9AFEB100400611 /* AppDelegate.h */,
 				CB1EE0C61A9AFEB100400611 /* AppDelegate.m */,
-				CB1EE0C81A9AFEB100400611 /* ViewController.h */,
-				CB1EE0C91A9AFEB100400611 /* ViewController.m */,
+				CB1EE0C81A9AFEB100400611 /* MSLoginViewController.h */,
+				CB1EE0C91A9AFEB100400611 /* MSLoginViewController.m */,
 				CB1EE0CB1A9AFEB100400611 /* Main.storyboard */,
 				CB1EE0CE1A9AFEB100400611 /* Images.xcassets */,
 				CB1EE0D01A9AFEB100400611 /* LaunchScreen.xib */,
@@ -119,6 +135,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CB1EE0E71A9C2E1900400611 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CB1EE0E81A9C2E2500400611 /* AppConstants.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB1EE0E11A9AFEB100400611 /* Build configuration list for PBXNativeTarget "MeetScript" */;
 			buildPhases = (
+				99786D10735C4AC3BE6A6AE2 /* Check Pods Manifest.lock */,
 				CB1EE0BA1A9AFEB000400611 /* Sources */,
 				CB1EE0BB1A9AFEB000400611 /* Frameworks */,
 				CB1EE0BC1A9AFEB000400611 /* Resources */,
+				62F9E41147F64AAB9EDBCFA2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,12 +240,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		62F9E41147F64AAB9EDBCFA2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-MeetScript-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99786D10735C4AC3BE6A6AE2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CB1EE0BA1A9AFEB000400611 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB1EE0CA1A9AFEB100400611 /* ViewController.m in Sources */,
+				CB1EE0CA1A9AFEB100400611 /* MSLoginViewController.m in Sources */,
 				CB1EE0C71A9AFEB100400611 /* AppDelegate.m in Sources */,
 				CB1EE0C41A9AFEB100400611 /* main.m in Sources */,
 			);
@@ -341,6 +400,7 @@
 		};
 		CB1EE0E21A9AFEB100400611 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C3EC8F74759413A99A86984 /* Pods-MeetScript.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MeetScript/Info.plist;
@@ -351,6 +411,7 @@
 		};
 		CB1EE0E31A9AFEB100400611 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C3EC8F74759413A99A86984 /* Pods-MeetScript.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MeetScript/Info.plist;
@@ -412,6 +473,7 @@
 				CB1EE0E31A9AFEB100400611 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB1EE0E41A9AFEB100400611 /* Build configuration list for PBXNativeTarget "MeetScriptTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +482,7 @@
 				CB1EE0E61A9AFEB100400611 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
