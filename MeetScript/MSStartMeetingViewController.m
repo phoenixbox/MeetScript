@@ -66,13 +66,21 @@
 }
 
 - (NSDictionary *)audioRecordingSettings {
-    NSDictionary *settings = [NSDictionary new];
+    NSDictionary *settings = @{
+                               AVFormatIDKey: @(kAudioFormatAppleLossless),
+                               AVSampleRateKey: @(44100.0f),
+                               AVNumberOfChannelsKey: @1,
+                               AVEncoderAudioQualityKey: @(AVAudioQualityLow)
+                               };
 
     return settings;
 }
 
-- (IBAction)pauseRecording:(id)sender {
+- (IBAction)pauseRecording:(AVAudioRecorder *)paramRecorder {
+    [paramRecorder pause];
 }
-- (IBAction)finishRecording:(id)sender {
+
+- (IBAction)finishRecording:(AVAudioRecorder *)paramRecorder {
+        [paramRecorder stop];
 }
 @end

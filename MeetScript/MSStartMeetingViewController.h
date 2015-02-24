@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseRecordingButton;
 - (IBAction)pauseRecording:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *finishRecordingButton;
-- (IBAction)finishRecording:(id)sender;
+- (IBAction)finishRecording:(AVAudioRecorder *)paramRecorder;
 
 @end
