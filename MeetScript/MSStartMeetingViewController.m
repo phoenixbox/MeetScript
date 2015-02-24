@@ -189,15 +189,16 @@
     }
 }
 
-- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player {
-    /* The audio session has been deactivated here */
+- (void)audioRecorderBeginInterruption:(AVAudioRecorder *)recorder {
+    NSLog(@"Recording has been interrupted");
 }
 
-- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player
+- (void)audioRecorderEndInterruption:(AVAudioRecorder *)recorder
                        withOptions:(NSUInteger)flags {
+    NSLog(@"Interruption over");
 
-    if (flags == AVAudioSessionInterruptionOptionShouldResume){
-        [player play];
+    if (flags == AVAudioSessionInterruptionOptionShouldResume) {
+        [recorder record];
     }
 }
 
